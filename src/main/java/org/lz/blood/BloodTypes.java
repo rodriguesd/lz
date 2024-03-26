@@ -55,7 +55,7 @@ public class BloodTypes {
             String bloodType1 = bloodTypesB.get(o);
             for (int i = 0; i < bloodTypesA.size(); i++)
             {
-                String bloodType2 = bloodTypesA.get(o);
+                String bloodType2 = bloodTypesA.get(i);
                 List<String> items =  getBloodTypes(bloodType1, bloodType2, typesB, child);
                 if(items != null &&
                         items.size() ==2)
@@ -65,6 +65,16 @@ public class BloodTypes {
 
             }
         }
+        if(unique.size() == 0)
+        {
+            List<String> noValues = new ArrayList<>();
+            noValues.add("--");
+            noValues.add("--");
+            unique.add(noValues);
+
+        }
+
+
         return unique;
 
     }
@@ -94,7 +104,9 @@ public class BloodTypes {
                     {
                         if(target.equals(value))
                         {
-                            all.add(value);
+                            all.add(bloodType1.replace("-",""));
+                            all.add(bloodType2.replace("-", ""));
+                            return all;
                         }
 
                     }
