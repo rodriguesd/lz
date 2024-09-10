@@ -8,7 +8,15 @@ import java.util.List;
 
 public class MergeLines {
 
-    public static List<List<Integer>> randomInterval(List<Integer> items) {
+    public static List<List<Integer>> randomInterval(List<Integer> items) throws Exception {
+
+
+        boolean oddList = items == null || items.size() % 2 > 0;
+
+        if (oddList) {
+            throw new Exception("Invalid list size");
+        }
+
 
         List<List<Integer>> pairs = new ArrayList<>();
         if (items.size() > 0) {
@@ -37,7 +45,6 @@ public class MergeLines {
                 next++;
             }
         }
-
 
 
         return pairs;

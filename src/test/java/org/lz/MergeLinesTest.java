@@ -13,7 +13,7 @@ import javax.xml.crypto.Data;
 public class MergeLinesTest extends TestCase {
 
     @Test
-    public void testOk()
+    public void testOk() throws Exception
     {
         List<Integer> items = new ArrayList<>();
         items.add(1);
@@ -25,7 +25,7 @@ public class MergeLinesTest extends TestCase {
     }
 
     @Test
-    public void testOkTwo()
+    public void testOkTwo() throws Exception
     {
         List<Integer> items = new ArrayList<>();
         items.add(1);
@@ -41,14 +41,14 @@ public class MergeLinesTest extends TestCase {
     }
 
     @Test
-    public void testNoValues()
+    public void testNoValues() throws Exception
     {
         List<Integer> items = new ArrayList<>();
         List<List<Integer>> pairs = MergeLines.randomInterval(items);
         assertTrue(pairs.size() == 0);
     }
     @Test
-    public void testRepeatedValues()
+    public void testRepeatedValues() throws Exception
     {
         List<Integer> items = new ArrayList<>();
 
@@ -94,7 +94,7 @@ public class MergeLinesTest extends TestCase {
     }
 
     @Test
-    public void testThreelines() {
+    public void testThreelines()  throws Exception{
         List<Integer> items = new ArrayList<>();
 
 
@@ -124,7 +124,7 @@ public class MergeLinesTest extends TestCase {
     }
 
     @Test
-    public void testTwolines() {
+    public void testTwolines()  throws Exception{
         List<Integer> items = new ArrayList<>();
 
 
@@ -144,7 +144,7 @@ public class MergeLinesTest extends TestCase {
     }
 
     @Test
-    public void testOneline() {
+    public void testOneline()  throws Exception{
         List<Integer> items = new ArrayList<>();
 
 
@@ -163,7 +163,7 @@ public class MergeLinesTest extends TestCase {
 
 
     @Test
-    public void testTwoNoOverLap()
+    public void testTwoNoOverLap() throws Exception
     {
         List<Integer> items = new ArrayList<>();
         items.add(1);
@@ -183,7 +183,7 @@ public class MergeLinesTest extends TestCase {
     }
 
     @Test
-    public void testThreeNoOverLap()
+    public void testThreeNoOverLap() throws Exception
     {
         List<Integer> items = new ArrayList<>();
         items.add(1);
