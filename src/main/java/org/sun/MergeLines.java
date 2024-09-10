@@ -26,12 +26,12 @@ public class MergeLines {
 
             List<Integer> it2 = pairs.get(next);
             List<Integer> it1 = pairs.get(current);
-            if (it2.get(0) < it1.get(1)) {
+            if (it2.get(0) <= it1.get(1)) {
                 //overlap //merge
                 int max = Math.max(it2.get(1), it1.get(1));
                 it1.set(1, max);
                 pairs.remove(next);
-                next++;
+
             } else {
                 current = next;
                 next++;
