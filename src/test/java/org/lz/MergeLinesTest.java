@@ -81,7 +81,47 @@ public class MergeLinesTest extends TestCase {
     @Test
     public void testTwoNoOverLap()
     {
+        List<Integer> items = new ArrayList<>();
+        items.add(1);
+        items.add(10);
+        items.add(11);
+        items.add(14);
 
+        List<List<Integer>> pairs = MergeLines.randomInterval(items);
+        assertTrue(pairs.size() == 2);
+
+
+        assertTrue(pairs.get(0).get(0) == 1);
+        assertTrue(pairs.get(0).get(1) == 10);
+
+        assertTrue(pairs.get(1).get(0) == 11);
+        assertTrue(pairs.get(1).get(1) == 14);
+    }
+
+    @Test
+    public void testThreeNoOverLap()
+    {
+        List<Integer> items = new ArrayList<>();
+        items.add(1);
+        items.add(10);
+        items.add(11);
+        items.add(14);
+
+        items.add(16);
+        items.add(17);
+
+        List<List<Integer>> pairs = MergeLines.randomInterval(items);
+        assertTrue(pairs.size() == 3);
+
+
+        assertTrue(pairs.get(0).get(0) == 1);
+        assertTrue(pairs.get(0).get(1) == 10);
+
+        assertTrue(pairs.get(1).get(0) == 11);
+        assertTrue(pairs.get(1).get(1) == 14);
+
+        assertTrue(pairs.get(2).get(0) == 16);
+        assertTrue(pairs.get(2).get(1) == 17);
     }
 
 }
