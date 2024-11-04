@@ -11,12 +11,13 @@ public class SolutionTest extends TestCase {
         assertTrue(htmlNode.getParentTag().equals("html"));
         htmlNode.print();
 
-//        html = "<html></html>";
-//        htmlNode = solution.parse(html);
-//        assertTrue(htmlNode.getParentTag().equals("html"));
-//        htmlNode.print();
 
+        System.out.println("\n");
 
+        html = "<html></html>";
+         htmlNode = solution.parse(html);
+        assertTrue(htmlNode.getParentTag().equals("html"));
+        htmlNode.print();
 
     }
 }
