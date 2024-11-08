@@ -246,7 +246,7 @@ public class PresentationResponseMapper {
 
         Collection<HierarchyNodesDto> itemsToReturn = new ArrayList<>();
         Map<UUID, List<Node>> parenToChild = new HashMap<>();
-        Map<UUID, Node> parents = new HashMap<>();
+        Map<UUID, Node> allNodes = new HashMap<>();
         UUID keyForRoot = null;
         if (nodes != null &&
                 nodes.size() > 0) {
@@ -254,7 +254,7 @@ public class PresentationResponseMapper {
                 boolean isParent = node.getParentId() == null;
                 if (!isParent) {
                     List<Node> children = parenToChild.get(node.getParentId());
-                    parents.put(node.getId(), node);
+                    allNodes.put(node.getId(), node);
                     if (children == null) {
                         children = new ArrayList<>();
                     }
@@ -268,7 +268,7 @@ public class PresentationResponseMapper {
             }
 
             Map<UUID, HierarchyNodesDto> parentsHierarchyNodesDto = new HashMap<>();
-            initGraph(parenToChild, parents, parentsHierarchyNodesDto);
+            initGraph(parenToChild, allNodes, parentsHierarchyNodesDto);
             List<Node> values =   parenToChild.get(keyForRoot);
             if(values != null)
             {
@@ -317,7 +317,7 @@ public class PresentationResponseMapper {
 
 
     private void initGraph(Map<UUID, List<Node>> parenToChild,
-                           Map<UUID, Node> parents,
+                           Map<UUID, Node> allNodes,
                            Map<UUID, HierarchyNodesDto> parentsHierarchyNodesDto) {
 
 
@@ -325,7 +325,7 @@ public class PresentationResponseMapper {
         for (UUID parent : parenToChild.keySet()) {
 
 
-            Node parentNode = parents.get(parent);
+            Node parentNode = allNodes.get(parent);
             if (parentNode == null) {
                 continue;
             }
